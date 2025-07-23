@@ -312,9 +312,9 @@ if __name__ == '__main__':
     alpha_ite1 = 7913600
     
 
-    landlord = f'oracle_reward/douzero/landlord{args.ite}.ckpt'
-    landlord_up = f'oracle_reward/douzero/landlord_up{args.ite}.ckpt'
-    landlord_down = f'oracle_reward/douzero/landlord_down{args.ite}.ckpt'
+    landlord = f'oracle_reward/landlord{args.ite}.ckpt'
+    landlord_up = f'oracle_reward/landlord_up{args.ite}.ckpt'
+    landlord_down = f'oracle_reward/landlord_down{args.ite}.ckpt'
 
     # landlord = f'douzero_checkpoints/douzero/landlord_weights_{ite3}.ckpt'
     # landlord_up = f'../beta/douzero_checkpoints/douzero/landlord_up_{alpha_ite1}.ckpt'
