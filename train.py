@@ -5,7 +5,7 @@ from douzero.dmc import parser, train
 if __name__ == '__main__':
     flags = parser.parse_args()
     flags.num_actors = 18
-    flags.num_threads = 60
+    flags.num_threads = 62
     flags.load_model = True
     flags.batch_size = 32
     flags.savedir = "oracle_reward"
