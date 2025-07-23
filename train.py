@@ -10,5 +10,5 @@ if __name__ == '__main__':
     flags.batch_size = 32
     flags.savedir = "oracle_reward"
     flags.use_oracle_reward = True
-    os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+    # os.environ["CUDA_VISIBLE_DEVICES"] = "2"
     train(flags)
