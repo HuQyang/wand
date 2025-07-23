@@ -107,7 +107,7 @@ def play_auto_game(card_play_data, card_play_model_path_dict, verbose=True,show_
         player = env.acting_player_position
         hand_cards = env.info_sets[player].player_hand_cards
         legal_actions = env.get_infoset().legal_actions
-        print("legal",legal_actions)
+        # print("legal",legal_actions)
         action = players[player].act(obs)
         if verbose:
             print(f"\n=== 出牌方: {player} ===")
