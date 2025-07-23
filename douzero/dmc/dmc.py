@@ -188,24 +188,24 @@ def train(flags):
         log.info(f"Resuming preempted job, current stats:\n{stats}")
     
     # Initialize wandb for logging
-    # import wandb
-    # wandb.init(
-    #     project="zero-training",
-    #     config={
-    #         "unroll_length": T,
-    #         "batch_size": B,
-    #         "num_actors": flags.num_actors,
-    #         "total_frames": flags.total_frames
-    #     }
-    # )
+    import wandb
+    wandb.init(
+        project="zero-training",
+        config={
+            "unroll_length": T,
+            "batch_size": B,
+            "num_actors": flags.num_actors,
+            "total_frames": flags.total_frames
+        }
+    )
 
     # # Create a custom logger that also logs to wandb
-    # class WandbLogger:
-    #     def log(self, stats_dict):
-    #         # Log all stats to wandb
-    #         wandb.log(stats_dict)
+    class WandbLogger:
+        def log(self, stats_dict):
+            # Log all stats to wandb
+            wandb.log(stats_dict)
             
-    # plogger = WandbLogger()
+    plogger = WandbLogger()
 
     # Starting actor processes
     for device in device_iterator:
@@ -282,7 +282,7 @@ def train(flags):
             start_frames = frames
             position_start_frames = {k: position_frames[k] for k in position_frames}
             start_time = timer()
-            time.sleep(60)
+            time.sleep(300)
 
             if timer() - last_checkpoint_time > flags.save_interval * 60:  
                 checkpoint(frames)
@@ -308,9 +308,9 @@ def train(flags):
                      position_fps['landlord_down'],
                      pprint.pformat(stats))
             
-            # wandb.log({
-            #     **stats  # Unpack all stats keys and values
-            # })
+            wandb.log({
+                **stats  # Unpack all stats keys and values
+            })
 
     except KeyboardInterrupt:
         return 
