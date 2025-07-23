@@ -8,7 +8,7 @@ if __name__ == '__main__':
     flags.num_threads = 62
     flags.load_model = True
     flags.batch_size = 32
-    flags.savedir = "oracle_reward"
+    flags.savedir = "actor_action"
     flags.use_oracle_reward = True
     flags.save_interval = 120
     os.environ["CUDA_VISIBLE_DEVICES"] = "3"
